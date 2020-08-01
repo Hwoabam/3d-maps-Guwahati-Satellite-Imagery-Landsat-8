@@ -128,6 +128,8 @@ render_snapshot(title_text = "Guwahati_Geographical|DEM: 30m SRTM",title_bar_col
 ```
 ![3D plot with DEM and Satellite Imagery ](https://github.com/Hwoabam/3d-maps-Guwahati-Satellite-Imagery-Landsat-8/blob/master/Media/Snapshots/snap2.png)
 
+![Demo2](https://github.com/Hwoabam/3d-maps-Guwahati-Satellite-Imagery-Landsat-8/blob/master/Media/Animation/GIF2.gif)
+
 Conversion of the map to a video footage of its planar rotation using snapshots taken at 1440 intervals during the rotation at 60 fps with the help of ffmpeg
 ```{r}
 angles= seq(0,360,length.out = 1441)[-1]
@@ -140,4 +142,3 @@ render_camera(theta=-45+angles[i])
 rgl::rgl.close()
 system("ffmpeg -framerate 60 -i guwahati_geo%d.png -vcodec libx264 -an Guwahati_geographical_1.mp4 ")
 ```
-![Demo2](https://github.com/Hwoabam/3d-maps-Guwahati-Satellite-Imagery-Landsat-8/blob/master/Media/Animation/GIF2.gif)
