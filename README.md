@@ -1,6 +1,6 @@
 # 3d-maps-Guwahati-Satellite-Imagery-Landsat-8
-
-
+![Demo1](https://github.com/Hwoabam/3d-maps-Guwahati-Satellite-Imagery-Landsat-8/blob/master/Media/Animations/GIF1.gif)
+![Demo2](https://github.com/Hwoabam/3d-maps-Guwahati-Satellite-Imagery-Landsat-8/blob/master/Media/Animations/GIF2.gif)
 Various packages are required for the 3D map generation which are installed and loaded into the program. These packages avail the functions such as Plotting of points, shading and adjusting the colors, conversion of GIS data, validating GDAL operations,etc. 
 ```{r}
 library(rayshader)
@@ -81,7 +81,7 @@ guwahati_rgb_array[,,3] = guwahati_b_cropped/255 #Green layer
 guwahati_rgb_array = aperm(guwahati_rgb_array, c(2,1,3))
 plot_map(guwahati_rgb_array)
 ```
-![Ceopped matrix plot](https://github.com/Hwoabam/3d-maps-Guwahati-Satellite-Imagery-Landsat-8/blob/master/Media/Plots/landsat_8_crop.png)
+![Cropped matrix plot](https://github.com/Hwoabam/3d-maps-Guwahati-Satellite-Imagery-Landsat-8/blob/master/Media/Plots/landsat_8_crop.png)
 
 The contrast is then adjusted
 ```{r fig5, fig.height = 12, fig.width = 8, align= "center"}
