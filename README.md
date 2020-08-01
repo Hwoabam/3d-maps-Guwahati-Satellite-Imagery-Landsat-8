@@ -30,7 +30,7 @@ guwahati_b = raster("D:/Assam maps/LC08_L1TP_137042_20200330_20200409_01_T1_B2.T
 guwahati_rgb = stack(guwahati_r, guwahati_g, guwahati_b)
 plotRGB(guwahati_rgb, scale=255^2)
 ```
-![Truecolor plot](https://github.com/Hwoabam/3d-maps-Guwahati-Satellite-Imagery-Landsat-8/blob/master/Media/Plots/plotRgb.png)
+![Truecolor plot](https://github.com/Hwoabam/3d-maps-Guwahati-Satellite-Imagery-Landsat-8/blob/master/Media/Plots/RGB.png)
 
 The above plot lacks brightness which is increased by implementing Gamma correction
 ```{r fig3, fig.height = 12, fig.width = 8, align= "center"}
