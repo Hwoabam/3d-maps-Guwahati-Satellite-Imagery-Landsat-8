@@ -18,8 +18,9 @@ windowsize=c(12,8)
 guwahati_elevation = raster("D:/Assam maps/New Folder/N26E091.hgt")
 height_shade(raster_to_matrix(guwahati_elevation)) %>%
   plot_map()
-
 ```
+![Elevation Heat Map](https://github.com/Hwoabam/Rstudio/blob/master/Media/Plots/Elevation heatmap.png)
+
 Now the satellite data is required to be downloaded from the USGS Earth explorer or any other suitable sources(Satellite 8 Data is specifically required for this purpose). The B2, B3 and B4 implies to blue, green and red color bands. So these TIF files are loaded and then stacked for band combinations and a satellite image is plotted 
 ```{r fig2, fig.height = 12, fig.width = 8, align= "center"}
 guwahati_r = raster("D:/Assam maps/LC08_L1TP_137042_20200330_20200409_01_T1_B4.TIF")
