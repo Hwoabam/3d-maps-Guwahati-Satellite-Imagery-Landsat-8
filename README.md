@@ -20,7 +20,6 @@ height_shade(raster_to_matrix(guwahati_elevation)) %>%
   plot_map()
 ```
 ![Elevation Heat Map](https://github.com/Hwoabam/3d-maps-Guwahati-Satellite-Imagery-Landsat-8/blob/master/Media/Snapshots/snap1.png)
-
 Now the satellite data is required to be downloaded from the USGS Earth explorer or any other suitable sources(Satellite 8 Data is specifically required for this purpose). The B2, B3 and B4 implies to blue, green and red color bands. So these TIF files are loaded and then stacked for band combinations and a satellite image is plotted 
 ```{r fig2, fig.height = 12, fig.width = 8, align= "center"}
 guwahati_r = raster("D:/Assam maps/LC08_L1TP_137042_20200330_20200409_01_T1_B4.TIF")
@@ -66,19 +65,14 @@ Now the Cropped area is to be transformed into a 3 layered RGB array and the ele
 guwahati_rgb_cropped = crop(guwahati_rgb_corrected, e)
 elevation_cropped = crop(guwahati_elevation_utm, e)
 names(guwahati_rgb_cropped) = c("r","g","b")
-
 guwahati_r_cropped = raster_to_matrix(guwahati_rgb_cropped$r)
 guwahati_g_cropped = raster_to_matrix(guwahati_rgb_cropped$g)
 guwahati_b_cropped = raster_to_matrix(guwahati_rgb_cropped$b)
-
 guwahatiel_matrix = raster_to_matrix(elevation_cropped)
-
 guwahati_rgb_array = array(0,dim=c(nrow(guwahati_r_cropped),ncol(guwahati_r_cropped),3))
-
 guwahati_rgb_array[,,1] = guwahati_r_cropped/255 #Red layer
 guwahati_rgb_array[,,2] = guwahati_g_cropped/255 #Blue layer
 guwahati_rgb_array[,,3] = guwahati_b_cropped/255 #Green layer
-
 guwahati_rgb_array = aperm(guwahati_rgb_array, c(2,1,3))
 plot_map(guwahati_rgb_array)
 ```
@@ -107,9 +101,8 @@ for(i in 1:1440) {
 }
 rgl::rgl.close()
 system("ffmpeg -framerate 60 -i guwahati_sat%d.png -vcodec libx264 -an Guwahati_satellite.mp4 ")
-
 ```
-![3D model of Guwahati_Satellite_Imagery ](C:/Users/asus/Documents/Guwahati_satellite.mp4)
+
 The geographical plot with 3d visualization in an rgl window. Defining viewpoint parameters in addition to Zscale which is set at 7.5 for more distinct topography. Background color, Shadow color are defined too with default color codes. Compass rendering is done with its position to the West of the map. Scalebar rendering is done with markings at 0,5, 10 (km) upto the caluclated length from the position 1.
 ```{r fig7, fig.height = 15, fig.width = 10, align= "center"}
 guwahatiel_matrix %>%
