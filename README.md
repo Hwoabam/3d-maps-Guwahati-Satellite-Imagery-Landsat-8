@@ -114,6 +114,8 @@ for(i in 1:1440) {
 rgl::rgl.close()
 system("ffmpeg -framerate 60 -i guwahati_sat%d.png -vcodec libx264 -an Guwahati_satellite.mp4 ")
 ```
+![Demo1](https://github.com/Hwoabam/3d-maps-Guwahati-Satellite-Imagery-Landsat-8/blob/master/Media/Animation/GIF1..gif)
+
 The geographical plot with 3d visualization in an rgl window. Defining viewpoint parameters in addition to Zscale which is set at 7.5 for more distinct topography. Background color, Shadow color are defined too with default color codes. Compass rendering is done with its position to the West of the map. Scalebar rendering is done with markings at 0,5, 10 (km) upto the caluclated length from the position 1.
 ```{r fig7, fig.height = 15, fig.width = 10, align= "center"}
 guwahatiel_matrix %>%
@@ -139,3 +141,4 @@ render_camera(theta=-45+angles[i])
 rgl::rgl.close()
 system("ffmpeg -framerate 60 -i guwahati_geo%d.png -vcodec libx264 -an Guwahati_geographical_1.mp4 ")
 ```
+![Demo2](https://github.com/Hwoabam/3d-maps-Guwahati-Satellite-Imagery-Landsat-8/blob/master/Media/Animation/GIF2.gif)
